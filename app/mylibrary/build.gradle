@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
-apply from: rootProject.file("github.properties")
 
 afterEvaluate {
     publishing {
@@ -28,21 +27,6 @@ afterEvaluate {
                 // Replace with the name of your library
                 artifactId 'manifestt'
                 version '1.0.0'
-            }
-        }
-
-        repositories {
-            maven {
-                name = "GitHubPackages"
-
-                // Replace GITHUB_USERID with your personal or organisation user ID and
-                // REPOSITORY with the name of the repository on GitHub
-                url = uri("https://maven.pkg.github.com/GITHUB_USERID/REPOSITORY")
-
-                credentials {
-                    username = ext.usr
-                    password = ext.key
-                }
             }
         }
     }
